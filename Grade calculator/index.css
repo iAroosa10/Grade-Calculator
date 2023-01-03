@@ -1,0 +1,18 @@
+
+.card{
+    background-color: cadetblue;
+    display: flex;
+    width: 50%;
+    height: 100%;
+    padding: 100px;
+    border-radius: 2%;
+    box-shadow: 5px 5px 5px 5px;
+}
+
+body{
+    background: rgb(96, 111, 111);
+}
+.app-form-control
+{
+    border-radius: 10%;
+}

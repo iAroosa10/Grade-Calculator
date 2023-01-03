@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+
+    <!-- css file link -->
+    <link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+
+    <!-- html structure -->
+
+        <div class="container" style="padding-top: 150px; padding-left: 350px;">
+                 <div class="card">  
+                            <div class="animated-infinite-pulse" style="padding: 60px;">
+                                <h2>Student <br> Grade <br> Calculator</h2>
+                    </div>
+                    <div class="screen-body-item">
+                        <div class="app-form">
+                            <div class="app-form-group">
+                                <input type="text" class="app-form-control" placeholder="Software Project Management"
+                                    id="spm" style="width: 200px; height: 18px; margin: 10px; ">
+                            </div>
+
+                            <div class="app-form-group">
+                                <input type="text" class="app-form-control"
+                                    placeholder="Software Architecture" id="sda" style="width: 200px; height: 18px; margin: 10px; ">
+                            </div>
+
+                            <div class="app-f           orm-group">
+                                <input type="text" class="app-form-control"
+                                    placeholder="Software Cunstruction" id="scd" style="width: 200px; height: 18px; margin: 10px; ">
+                            </div>
+
+                            <div class="app-form-group">
+                                <input type="text" class="app-form-control" placeholder="Operational Research" id="or" style="width: 200px; height: 18px; margin: 10px; ">
+                            </div>
+
+                            <div class="app-form-group">
+                                <input type="text" class="app-form-control" placeholder="Formal Methods" id="fm" style="width: 200px; height: 18px; margin: 10px; ">
+                            </div>
+
+                            <div style="padding-left: 25px;">
+                                <input type="button" class="app-form-button" value="Show Result" name=""
+                                    onclick="calc()" style="width: 150px; height: 25px; margin: 10px;">
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div> 
+              
+             
+                <div class="app-form-group showdata">
+                    <p id="showData"></p>
+                </div>
+        </div>
+
+
+
+
+    <!-- js code starts here -->
+
+    <script>
+        const calc = () => {
+            let spm = document.getElementById('spm').value;
+            let sda = document.getElementById('sda').value;
+            let scd = document.getElementById('scd').value;
+            let or = document.getElementById('or').value;
+            let fm = document.getElementById('fm').value;
+            let grades = "";
+
+            // for calculating total marks
+
+            let totalGrades = parseFloat(spm) + parseFloat(sda) + parseFloat(scd) + parseFloat(or) + parseFloat(fm);
+            alert(totalGrades);
+
+            // calculating percentage
+
+            let percentage = (totalGrades / 500) * 100;
+            alert(percentage);
+
+            // calculating grades
+
+            if (percentage <= 100 && percentage >= 85) {
+                grades = 'A';
+            }
+            else if (percentage <= 84 && percentage >= 75) {
+                grades = 'B';
+            }
+            else if (percentage <= 74 && percentage >= 65) {
+                grades = 'C';
+            }
+            else if (percentage <= 64 && percentage >= 50) {
+                grades = 'D';
+            }
+            else {
+                grades = 'F';
+            }
+
+            if (percentage >= 50){
+                document.getElementById('showData').innerHTML = ` Out of 500 your total is ${totalGrades} and percentage is ${percentage}% <br> Your Grade is ${grades}. You are Pass.`
+            }
+            else {
+                document.getElementById('showData').innerHTML = ` Out of 500 your total is ${totalGrades} and percentage is ${percentage}% <br> Your Grade is ${grades}. You are Fail.`
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>
